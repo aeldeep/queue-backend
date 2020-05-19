@@ -6,4 +6,7 @@ public class UnauthorizedException extends AbstractHttpException{
 	
 	public UnauthorizedException() {
 		super("You are Unauthorized for this Endpoint", HttpStatus.FORBIDDEN);
-	}}
+	}
+	
+	
+}

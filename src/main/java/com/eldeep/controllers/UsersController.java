@@ -37,6 +37,7 @@ public class UsersController {
 		this.us = us;
 	}
 
+	@Auth(roles = {"Admin"})
 	@GetMapping//this is going to match GET on path /users
 	//This methods purpose, is take a request and build a response from that request
 	public ResponseEntity<List<UsersModel>> getAllUsers(){

@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.eldeep.exceptions.ValidInformation;
+
 
 @Service
 public class UsersServiceImpl implements UsersService{
@@ -60,7 +62,12 @@ public class UsersServiceImpl implements UsersService{
 	@Override
 	public UsersModel loginUser(String username, String password) {
 		// TODO Auto-generated method stub
-		return ud.findByUsernameAndPassword(username, password);
+		if (ud.findByUsernameAndPassword(username, password)==null)
+		{
+			throw new ValidInformation();
+		}else {
+			return ud.findByUsernameAndPassword(username, password);
+	}
 	}
 
 }
